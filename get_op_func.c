@@ -31,7 +31,6 @@ instruction_t *get_op_func(const char *s)
 	if (opc == NULL)
 	{
 		printf("Error: malloc failed\n");
-		free(opc);
 		exit(EXIT_FAILURE);
 	}
 	i = 0;

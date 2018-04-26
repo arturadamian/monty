@@ -48,21 +48,18 @@ int main(int argc, char* argv[])
 			continue;
 		}
 		f = (get_op_func(token));
-/*		if (!f->opcode)
+		if (!f->opcode)
 		{
+			printf("L%d: unknown instruction %s", line_number, token);
 			free(f);
 			if (buffer)
 				free(buffer);
 			buffer = NULL;
-			continue;
-*/
+                        exit(EXIT_FAILURE);
+		}
 		if (f->f)
 			f->f(&stack, line_number);
-		else
-		{
-			printf("L%d: unknown instruction %s", line_number, token);
-			exit(EXIT_FAILURE);
-		}
+
 		if (buffer)
 			free(buffer);
 		buffer = NULL;
