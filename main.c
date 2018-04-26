@@ -22,13 +22,15 @@ int main(int argc, char* argv[])
 	printf("got here 2?");
 	if (argc != 2)
 	{
-		printf("argc is not 2");
+		fprintf(stdout, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
 	fd = fopen(argv[1], "r"); /* opens an reads */
 	printf("got here 3?");
+
 	if (fd == NULL)
+		fprintf(stdout, "Error: Can't open file %s", argv[1]);
 		exit(EXIT_FAILURE);
 
 	line_number = 0;
