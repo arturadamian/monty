@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 
 	if (argc != 2)
 	{
-		fprintf(stdout, "USAGE: monty file\n");
+		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -30,9 +30,10 @@ int main(int argc, char* argv[])
 
 
 	if (fd == NULL)
-/*		fprintf(stdout, "Error: Can't open file %s", argv[1]);
-*/		exit(EXIT_FAILURE);
-
+	{
+		printf("Error: Can't open file %s", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 	while (getline(&buffer, &buffsize, fd) != -1)
 	{
 		line_number++;
@@ -41,32 +42,25 @@ int main(int argc, char* argv[])
 		token = tokenize(buffer);
 		if (token == NULL)
 		{
-			free(f);
 			if (buffer)
 				free(buffer);
 			buffer = NULL;
 			continue;
 		}
 		f = (get_op_func(token));
-		if (!f->opcode)
+/*		if (!f->opcode)
 		{
 			free(f);
 			if (buffer)
 				free(buffer);
 			buffer = NULL;
 			continue;
-		}
+*/
 		if (f->f)
 			f->f(&stack, line_number);
 		else
 		{
 			printf("L%d: unknown instruction %s", line_number, token);
-			if (buffer)
-				free(buffer);
-			if (stack)
-				free_list(stack);
-			free(f);
-			fclose(fd);
 			exit(EXIT_FAILURE);
 		}
 		if (buffer)

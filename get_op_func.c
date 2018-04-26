@@ -19,10 +19,6 @@ instruction_t *get_op_func(const char *s)
 		{"add", op_add},
 		{NULL, NULL}
 
-
-
-
-
 /*		{"nop", op_nop},
 		{"sub", op_sub},
 		{"div", op_div},
@@ -34,7 +30,7 @@ instruction_t *get_op_func(const char *s)
 	opc = malloc(sizeof(instruction_t));
 	if (opc == NULL)
 	{
-		fprintf(stdout, "Error: malloc failed\n");
+		printf("Error: malloc failed\n");
 		free(opc);
 		exit(EXIT_FAILURE);
 	}

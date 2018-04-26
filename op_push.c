@@ -21,7 +21,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 	plates = malloc(sizeof(stack_t));
 	if (plates == NULL)
 	{
-		fprintf(stdout, "Error: malloc failed\n");
+		printf("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
