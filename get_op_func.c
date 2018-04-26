@@ -30,7 +30,11 @@ instruction_t *get_op_func(const char *s)
 
 	opc = malloc(sizeof(instruction_t));
 	if (opc == NULL)
+	{
+		fprintf(stdout, "Error: malloc failed");
+		free(opc);
 		exit(EXIT_FAILURE);
+	}
 
 	i = 0;
 	while (ops[i].opcode && strcmp(ops[i].opcode, s) != 0)
