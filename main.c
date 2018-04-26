@@ -40,16 +40,42 @@ int main(int argc, char* argv[])
 			continue;
 		token = tokenize(buffer);
 		if (token == NULL)
-			continue;
-		f = (get_op_func(token));
-		if (f == NULL)
+		{
 			free(f);
-
+			if (buffer)
+				free(buffer);
+			buffer = NULL;
+			continue;
+		}
+		f = (get_op_func(token));
+		if (!f->opcode)
+		{
+			free(f);
+			if (buffer)
+				free(buffer);
+			buffer = NULL;
+			continue;
+		}
 		if (f->f)
 			f->f(&stack, line_number);
+		else
+		{
+			printf("L%d: unknown instruction %s", line_number, token);
+			if (buffer)
+				free(buffer);
+			if (stack)
+				free_list(stack);
+			free(f);
+			fclose(fd);
+			exit(EXIT_FAILURE);
+		}
+		if (buffer)
+			free(buffer);
+		buffer = NULL;
+		free(f);
 	}
 	free(buffer);
-	free(f);
 	free_list(stack);
+	fclose(fd);
 	return (0);
 }

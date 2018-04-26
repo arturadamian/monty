@@ -45,6 +45,7 @@ typedef struct instruction_s
 int _isdigit(const char* tok_data);
 char *tokenize(char *s);
 instruction_t *get_op_func(const char *s);
+void free_list(stack_t *stack);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **stack, unsigned int line_number);
 void op_pint(stack_t **stack, unsigned int line_number);
