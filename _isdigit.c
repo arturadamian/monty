@@ -12,7 +12,8 @@ int _isdigit(const char* tok_data)
 
 	if (!tok_data)
 		exit(EXIT_FAILURE);
-
+	if (tok_data[i] == '-')
+		i++;
 	while (tok_data[i] != '\0')
 	{
 		if (isdigit(tok_data[i]) == 0)
