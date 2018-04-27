@@ -9,7 +9,7 @@
 
 void op_div(stack_t **stack, unsigned int line_number)
 {
-	int summ;
+	int div;
 
 	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
@@ -23,7 +23,7 @@ void op_div(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	summ = (*stack)->next->n / (*stack)->n;
+	div = (*stack)->next->n / (*stack)->n;
 	op_pop(stack, line_number);
-	(*stack)->next->n = summ;
+	(*stack)->n = div;
 }
