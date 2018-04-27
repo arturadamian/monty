@@ -8,7 +8,7 @@
 
 instruction_t *get_op_func(const char *s)
 {
-	int i = 0;
+	int i;
 	instruction_t *opc;
 	instruction_t ops[] = {
 		{"push", op_push},
@@ -30,6 +30,7 @@ instruction_t *get_op_func(const char *s)
 		printf("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
+	i = 0;
 	while (ops[i].opcode && strcmp(ops[i].opcode, s) != 0)
 		i++;
 	opc->opcode = ops[i].opcode;

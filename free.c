@@ -5,16 +5,16 @@
  * @stack: pointer to the stack
  */
 
-void free_list(stack_t **stack)
+void free_list(stack_t *stack)
 {
 	stack_t *temp;
 
 	if (!stack)
 		return;
-	while (*stack)
+	while (stack)
 	{
-		temp = *stack;
-		(*stack) = (*stack)->next;
+		temp = stack;
+		stack = stack->next;
 		free(temp);
 	}
 }
