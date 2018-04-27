@@ -19,7 +19,7 @@ void op_sub(stack_t **stack, unsigned int line_number)
 	}
 
 
-	subb = temp->next->n - temp->n;
+	subb = (*stack)->next->n - (*stack)->n;
 	op_pop(stack, line_number);
 	(*stack)->next->n = subb;
 }
