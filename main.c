@@ -6,35 +6,31 @@
  * @argv: argument variable
  * Return: 0
  */
-
 int main(int argc, char *argv[])
 {
 	FILE *fd;
-	char *buffer = NULL, *token = NULL;
-	size_t buffsize = 0, *stack = NULL;
+	char *buffer = NULL;/* *token = NULL;*/
+	size_t buffsize = 0;
+	stack_t *stack = NULL;
 	unsigned int line_number = 0;
-	instruction_t *f = NULL;
 
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
 	fd = fopen(argv[1], "r"); /* opens an reads */
 	if (fd == NULL)
 	{
 		printf("Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-
 	while (getline(&buffer, &buffsize, fd) != -1)
 	{
 		line_number++;
-		if (*buffer == '\n')
-			continue;
-		token = tokenize(buffer);
-		if (token == NULL)
+		if (*buffer != '\n')
+			tokenize(buffer, &stack, line_number);
+/*&		if (token == NULL)
 		{
 			if (buffer)
 				free(buffer);
@@ -59,9 +55,9 @@ int main(int argc, char *argv[])
 			free(buffer);
 		buffer = NULL;
 		free(f);
-	}
+*/	}
 	free(buffer);
-	free_list(stack);
+	free_list(&stack);
 	fclose(fd);
 	return (0);
 }
