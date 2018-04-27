@@ -17,10 +17,11 @@ instruction_t *get_op_func(const char *s)
 		{"pop", op_pop},
 		{"swap", op_swap},
 		{"add", op_add},
+		{"nop", op_nop},
 		{NULL, NULL}
 
-/*		{"nop", op_nop},
-		{"sub", op_sub},
+
+/*		{"sub", op_sub},
 		{"div", op_div},
 		{"mul", op_mul},
 		{"mod", op_mod},
