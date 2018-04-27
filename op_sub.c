@@ -11,15 +11,14 @@ void op_sub(stack_t **stack, unsigned int line_number)
 {
 	int subb;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		printf("L%d: can't sub, stack too short\n", line_number);
-		free_list(stack);
 		exit(EXIT_FAILURE);
 	}
 
 
 	subb = (*stack)->next->n - (*stack)->n;
 	op_pop(stack, line_number);
-	(*stack)->next->n = subb;
+	(*stack)->n = subb;
 }
