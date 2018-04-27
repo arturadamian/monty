@@ -23,6 +23,7 @@ instruction_t *get_op_func(const char *s)
 		{"mul", op_mul},
 		{"mod", op_mod},
 		{"pchar", op_pchar},
+		{"pstr", op_pstr},
 		{NULL, NULL}
 	};
 	opc = malloc(sizeof(instruction_t));
