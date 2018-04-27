@@ -11,6 +11,7 @@
 
 #define DELIMITERS "\t\n\r "
 #define UNUSED(x) (void)(x)
+
 extern int data;
 int data;
 
@@ -29,6 +30,7 @@ typedef struct stack_s
         struct stack_s *prev;
         struct stack_s *next;
 } stack_t;
+
 /**
  * struct instruction_s - opcoode and its function
  * @opcode: the opcode
@@ -43,10 +45,10 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int _isdigit(const char* tok_data);
-char *tokenize(char *s);
-instruction_t *get_op_func(const char *s);
 void free_list(stack_t *stack);
+char *tokenize(char *s);
+int _isdigit(const char* tok_data);
+instruction_t *get_op_func(const char *s);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **stack, unsigned int line_number);
 void op_pint(stack_t **stack, unsigned int line_number);
@@ -58,5 +60,6 @@ void op_sub(stack_t **stack, unsigned int line_number);
 void op_div(stack_t **stack, unsigned int line_number);
 void op_mul(stack_t **stack, unsigned int line_number);
 void op_mod(stack_t **stack, unsigned int line_number);
+void op_pchar(stack_t **stack, unsigned int line_number);
 
 #endif
