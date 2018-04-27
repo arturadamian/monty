@@ -8,20 +8,15 @@
 
 int _isdigit(const char *tok_data)
 {
-	int i = 0;
-
 	if (!tok_data)
-		exit(0);
-	if (tok_data[i] == '-')
-		i++;
-	while (tok_data[i] != '\0')
+		return (0);
+	if (*tok_data == '-')
+		tok_data++;
+	while (*tok_data != '\0')
 	{
-		if (!isdigit(tok_data[i]))
-		{
-			printf("L%d: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
-		}
-		i++;
+		if (!isdigit(*tok_data))
+			return (0);
+		tok_data++;
 	}
 	return (1);
 }
