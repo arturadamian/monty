@@ -14,8 +14,8 @@ void op_pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if (((*stack)->n < 65 && (*stack)->n > 90) ||
-	    ((*stack)->n < 97 && (*stack)->n > 122))
+	if (((*stack)->n < 65 || (*stack)->n > 90) &&
+	    ((*stack)->n < 97 || (*stack)->n > 122))
 	{
 		printf("L%d: can't pchar, value out of range\n", line_number);
 		exit(EXIT_FAILURE);
