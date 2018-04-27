@@ -1,0 +1,42 @@
+#include "monty.h"
+
+/**
+ * tokenize - tokenizes a string
+ * @s: string that will be tokenized
+ * Return: tokenized tokens
+ */
+
+char *tokenize(char *s)
+{
+	char *token; /*str that returns strtok */
+
+	if (s == NULL)
+		return (NULL);
+	token = strtok(s, DELIMITERS);
+	return (token);
+}
+if (token == NULL)
+{
+	if (buffer)
+		free(buffer);
+	buffer = NULL;
+	continue;
+}
+f = (get_op_func(token));
+if (!f->opcode)
+{
+	printf("L%d: unknown instruction %s\n",
+	       line_number, token);
+	free(f);
+	if (buffer)
+		free(buffer);
+	buffer = NULL;
+	exit(EXIT_FAILURE);
+}
+if (f->f)
+	f->f(&stack, line_number);
+
+if (buffer)
+	free(buffer);
+buffer = NULL;
+free(f);

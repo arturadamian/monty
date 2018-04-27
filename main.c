@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
 	size_t buffsize = 0;
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
+	instruction_t *f = NULL;
+	char *token = NULL;
 
 	if (argc != 2)
 	{
@@ -29,8 +31,8 @@ int main(int argc, char *argv[])
 	{
 		line_number++;
 		if (*buffer != '\n')
-			tokenize(buffer, &stack, line_number);
-/*&		if (token == NULL)
+			token = tokenize(buffer);
+		if (token == NULL)
 		{
 			if (buffer)
 				free(buffer);
@@ -55,7 +57,7 @@ int main(int argc, char *argv[])
 			free(buffer);
 		buffer = NULL;
 		free(f);
-*/	}
+	}
 	free(buffer);
 	free_list(&stack);
 	fclose(fd);
