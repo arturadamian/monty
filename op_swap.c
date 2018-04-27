@@ -2,7 +2,7 @@
 
 /**
  * op_swap - swaps the top two elements of the stack
- * @stack - double pointer to the stack
+ * @stack: double pointer to the stack
  * @line_number: current line number
  * Return: void
  */

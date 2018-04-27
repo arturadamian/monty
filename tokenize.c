@@ -3,6 +3,8 @@
 /**
  * tokenize - tokenizes a string
  * @s: string that will be tokenized
+ * @stack: list
+ * @line_number: lines
  */
 void tokenize(char *s, stack_t **stack, unsigned int line_number)
 {
@@ -18,7 +20,7 @@ void tokenize(char *s, stack_t **stack, unsigned int line_number)
 	else
 	{
 		printf("L%d: unknown instruction %s\n",
-                       line_number, token);
+		       line_number, token);
 		free(f);
 		free(s);
 		s = NULL;

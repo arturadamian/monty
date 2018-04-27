@@ -2,7 +2,7 @@
 
 /**
  * op_sub - subtract the top elements of the stack from the second top element
- * @stack - double pointer to the stack
+ * @stack: double pointer to the stack
  * @line_number: current line number
  * Return: void
  */

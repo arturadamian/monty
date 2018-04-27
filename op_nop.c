@@ -2,8 +2,8 @@
 
 /**
  * op_nop - opcode that doesn't do anything
- * @stack - double pointer to the stack
- * @line_number - current line number
+ * @stack: double pointer to the stack
+ * @line_number: current line number
  * Return: void
  */
 

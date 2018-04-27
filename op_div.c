@@ -2,7 +2,7 @@
 
 /**
  * op_div - divides the second top element of the stack by the top element
- * @stack - double pointer to the stack
+ * @stack: double pointer to the stack
  * @line_number: current line number
  * Return: void
  */

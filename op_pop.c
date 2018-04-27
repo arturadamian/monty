@@ -2,7 +2,7 @@
 
 /**
  * op_pop - removes the top element of the stack
- * @stack - double pointer to the stack
+ * @stack: double pointer to the stack
  * @line_number: current line number
  * Return: void
  */
