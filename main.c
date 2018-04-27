@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
 
 	if (fd == NULL)
 	{
-		printf("Error: Can't open file %s", argv[1]);
+		printf("Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&buffer, &buffsize, fd) != -1)
@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
 		f = (get_op_func(token));
 		if (!f->opcode)
 		{
-			printf("L%d: unknown instruction %s", line_number, token);
+			printf("L%d: unknown instruction %s\n", line_number, token);
 			free(f);
 			if (buffer)
 				free(buffer);

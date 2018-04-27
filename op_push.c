@@ -15,7 +15,10 @@ void op_push(stack_t **stack, unsigned int line_number)
 	UNUSED(line_number);
 	tok_data = strtok('\0', DELIMITERS);
 	if (!tok_data || !_isdigit(tok_data))
+	{
+		printf("L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
+	}
 	data = atoi(tok_data);
 
 	plates = malloc(sizeof(stack_t));
