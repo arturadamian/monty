@@ -12,13 +12,12 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 
         UNUSED(line_number);
         temp = *stack;
-        if (temp != NULL)
-        {
-                while (temp && temp->n != '\0')
-                {
-                        printf("%c", temp->n);
-                        temp = temp->next;
-                }
-        }
+        if (temp == NULL)
+		printf("\n");
+	while (temp && temp->n != '\0' && (temp->n > 0 && temp->n < 127))
+	{
+		printf("%c", temp->n);
+		temp = temp->next;
+	}
 	printf("\n");
 }
