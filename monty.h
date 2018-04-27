@@ -8,6 +8,7 @@
 #include <limits.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <stdbool.h>
 
 #define DELIMITERS "\t\n\r "
 #define UNUSED(x) (void)(x)
@@ -62,4 +63,5 @@ void op_mul(stack_t **stack, unsigned int line_number);
 void op_mod(stack_t **stack, unsigned int line_number);
 void op_pchar(stack_t **stack, unsigned int line_number);
 void op_pstr(stack_t **stack, unsigned int line_number);
+void op_queue(stack_t **stack, unsigned int line_number);
 #endif

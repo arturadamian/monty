@@ -10,16 +10,19 @@
 void op_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *plates = NULL;
+	stack_t *temp = NULL;
 	char *tok_data;
+	int toky = 0;
 
-	UNUSED(line_number);
+	temp = *stack;
 	tok_data = strtok('\0', DELIMITERS);
 	if (!tok_data || !_isdigit(tok_data))
 	{
 		printf("L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	data = atoi(tok_data);
+
+	toky = atoi(tok_data);
 
 	plates = malloc(sizeof(stack_t));
 	if (plates == NULL)
@@ -28,7 +31,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	plates->n = data;
+	plates->n = toky;
 	plates->prev = NULL;
 
 	if (*stack == NULL)
@@ -36,12 +39,20 @@ void op_push(stack_t **stack, unsigned int line_number)
 		plates->next = NULL;
 		*stack = plates;
 	}
-
 	else
-	{
-		plates->next = *stack;
-		(*stack)->prev = plates;
-		*stack = plates;
-	}
+		if (data == 0)
+		{
+			plates->next = *stack;
+			(*stack)->prev = plates;
+			*stack = plates;
+		}
+ 		if (data == 1)
+	 	{
+			while (temp->next != NULL)
+			 	temp = temp->next;
 
+	 		temp->next = plates;
+		 	plates->prev = temp;
+			plates->next = NULL;
+	 	}
 }

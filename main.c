@@ -17,7 +17,6 @@ int main(int argc, char *argv[])
 	instruction_t *f = NULL;
 	char *token = NULL;
 
-
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
@@ -35,8 +34,7 @@ int main(int argc, char *argv[])
 	while (getline(&buffer, &buffsize, fd) != -1)
 	{
 		line_number++;
-		if (*buffer == '\n')
-			continue;
+
 		token = tokenize(buffer);
 		if (token == NULL)
 		{
@@ -46,9 +44,19 @@ int main(int argc, char *argv[])
 			continue;
 		}
 
-		if (token[0] == '#')
+		if (token[0] == '#' || *buffer == '\n')
 			continue;
 
+		if (strcmp("queue", token) == 0)
+		{
+			data = 1;
+			continue;
+		}
+		if (strcmp("stack", token) == 0)
+		{
+			data = 0;
+			continue;
+		}
 		f = (get_op_func(token));
 		if (!f->opcode)
 		{
