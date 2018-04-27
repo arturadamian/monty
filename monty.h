@@ -12,6 +12,7 @@
 #define DELIMITERS "\t\n\r "
 #define UNUSED(x) (void)(x)
 extern int data;
+int data = 0;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

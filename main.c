@@ -7,8 +7,6 @@
  * Return: 0
  */
 
-int data;
-
 int main(int argc, char *argv[])
 {
 	char *buffer = NULL;
