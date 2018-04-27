@@ -45,6 +45,10 @@ int main(int argc, char *argv[])
 			buffer = NULL;
 			continue;
 		}
+
+		if (token[0] == '#')
+			continue;
+
 		f = (get_op_func(token));
 		if (!f->opcode)
 		{
