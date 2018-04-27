@@ -18,12 +18,11 @@ instruction_t *get_op_func(const char *s)
 		{"swap", op_swap},
 		{"add", op_add},
 		{"nop", op_nop},
-		{NULL, NULL}
-/*		{"sub", op_sub},
+		{"sub", op_sub},
 		{"div", op_div},
 		{"mul", op_mul},
 		{"mod", op_mod},
-		{NULL, NULL}*/
+		{NULL, NULL}
 	};
 	opc = malloc(sizeof(instruction_t));
 	if (opc == NULL)
