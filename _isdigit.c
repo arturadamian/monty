@@ -18,6 +18,7 @@ int _isdigit(const char *tok_data)
 	{
 		if (!isdigit(tok_data[i]))
 		{
+			printf("L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
 		i++;
