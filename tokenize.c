@@ -11,19 +11,18 @@ void tokenize(char *s, stack_t **stack, unsigned int line_number)
 
 	token = strtok(s, DELIMITERS);
 	if (token == NULL || *token == ' ' || *token == '\n')
-		return;
+		exit(EXIT_FAILURE);
 	f = (get_op_func(token));
-	if (!f->opcode)
+	if (f)
+		f->f(stack, line_number);
+	else
 	{
 		printf("L%d: unknown instruction %s\n",
-		       line_number, token);
+                       line_number, token);
 		free(f);
-		if (s)
-			free(s);
-		if (stack)
-			free_list(stack);
+		free(s);
+		s = NULL;
+		free_list(stack);
 		exit(EXIT_FAILURE);
 	}
-	if (f->f)
-		f->f(stack, line_number);
 }

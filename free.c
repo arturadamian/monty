@@ -9,7 +9,7 @@ void free_list(stack_t **stack)
 {
 	stack_t *temp;
 
-	if (!*stack)
+	if (!stack)
 		return;
 	while (*stack)
 	{

@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
 	if (fd == NULL)
 	{
 		printf("Error: Can't open file %s\n", argv[1]);
+		free_list(&stack);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&buffer, &buffsize, fd) != -1)
@@ -30,34 +31,9 @@ int main(int argc, char *argv[])
 		line_number++;
 		if (*buffer != '\n')
 			tokenize(buffer, &stack, line_number);
-/*&		if (token == NULL)
-		{
-			if (buffer)
-				free(buffer);
-			buffer = NULL;
-			continue;
-		}
-		f = (get_op_func(token));
-		if (!f->opcode)
-		{
-			printf("L%d: unknown instruction %s\n",
-			       line_number, token);
-			free(f);
-			if (buffer)
-				free(buffer);
-			buffer = NULL;
-			exit(EXIT_FAILURE);
-		}
-		if (f->f)
-			f->f(&stack, line_number);
-
-		if (buffer)
-			free(buffer);
-		buffer = NULL;
-		free(f);
-*/	}
+	}
 	free(buffer);
-	free_list(&stack);
 	fclose(fd);
-	return (0);
+	free_list(&stack);
+	return (EXIT_SUCCESS);
 }
