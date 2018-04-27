@@ -6,7 +6,7 @@
  * Return: 1
  */
 
-int _isdigit(const char* tok_data)
+int _isdigit(const char *tok_data)
 {
 	int i = 0;
 

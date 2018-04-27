@@ -9,6 +9,7 @@
 char *tokenize(char *s)
 {
 	char *token; /*str that returns strtok */
+
 	if (s == NULL)
 		return (NULL);
 	token = strtok(s, DELIMITERS);

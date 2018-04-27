@@ -1,16 +1,16 @@
 #include "monty.h"
 
 /**
- * get_op_func - 
- * @s: 
- * Return: 
+ * get_op_func - gets correction operation for program usage
+ * @s: input
+ * Return: operation to be used
  */
 
 instruction_t *get_op_func(const char *s)
 {
 	int i;
 	instruction_t *opc;
-	instruction_t ops [] = {
+	instruction_t ops[] = {
 		{"push", op_push},
 		{"pall", op_pall},
 		{"pint", op_pint},
@@ -19,7 +19,6 @@ instruction_t *get_op_func(const char *s)
 		{"add", op_add},
 		{"nop", op_nop},
 		{NULL, NULL}
-
 
 /*		{"sub", op_sub},
 		{"div", op_div},

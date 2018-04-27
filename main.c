@@ -9,7 +9,7 @@
 
 int data;
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
 	char *buffer = NULL;
 	size_t buffsize = 0;
@@ -50,12 +50,13 @@ int main(int argc, char* argv[])
 		f = (get_op_func(token));
 		if (!f->opcode)
 		{
-			printf("L%d: unknown instruction %s\n", line_number, token);
+			printf("L%d: unknown instruction %s\n",
+			       line_number, token);
 			free(f);
 			if (buffer)
 				free(buffer);
 			buffer = NULL;
-                        exit(EXIT_FAILURE);
+			exit(EXIT_FAILURE);
 		}
 		if (f->f)
 			f->f(&stack, line_number);
