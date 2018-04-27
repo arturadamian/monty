@@ -10,13 +10,16 @@
 void op_sub(stack_t **stack, unsigned int line_number)
 {
 	int summ;
+	stack_t *temp = NULL;
 
 	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
 		printf("L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	summ = ((*stack)->next->n) - ((*stack)->n);
+
+	temp = *stack;
+	summ = temp->next->n - temp->n;
 	op_pop(stack, line_number);
-	((*stack)->next->n) = summ;
+	(*stack)->next->n = summ;
 }
