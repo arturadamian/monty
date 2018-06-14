@@ -17,13 +17,15 @@ int main(int argc, char *argv[])
 	instruction_t *f = NULL;
 	char *token = NULL;
 
+	/* checks for correct amount of arguments */
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
-	fd = fopen(argv[1], "r"); /* opens an reads */
+	/* opens and reads file */
+	fd = fopen(argv[1], "r");
 
 
 	if (fd == NULL)
@@ -31,6 +33,8 @@ int main(int argc, char *argv[])
 		printf("Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
+
+	/* */
 	while (getline(&buffer, &buffsize, fd) != -1)
 	{
 		line_number++;
